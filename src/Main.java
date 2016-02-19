@@ -1,5 +1,3 @@
-package bennett.bernardoni;
-
 import javax.swing.JFrame;
 
 public class Main {

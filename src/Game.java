@@ -1,13 +1,9 @@
-package bennett.bernardoni;
-
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-import bennett.bernardoni.GUI.Painting;
-
 public class Game {
 	KeyManager km;
-	Painting pan;
+	GUI.Painting pan;
 	Player pl;
 	Stage st;
 	CompGraphics gr;
@@ -15,7 +11,7 @@ public class Game {
 	enum MenuStates {game, debug, editor, printer}
 	MenuStates menuState;
 	
-	public Game(KeyManager km, Painting pan) {
+	public Game(KeyManager km, GUI.Painting pan) {
 		this.km = km;
 		this.pan = pan;
 		pl = new Player(this);

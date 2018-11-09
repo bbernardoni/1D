@@ -16,36 +16,38 @@ public class Stage {
         if (file.exists()){
 	        try {
 			    //get number of lines
-			    Scanner scanner = new Scanner(file);
+			    Scanner scanLines = new Scanner(file);
 			    int count = 0;
-			    while (scanner.hasNextLine()) {
-			        scanner.nextLine();
+			    while (scanLines.hasNextLine()) {
+			    	scanLines.nextLine();
 			        count++;
 			    }
 			    walls = new double[count][][];
-			    scanner.close();
+			    scanLines.close();
 			    //get number of points on a line
-			    scanner = new Scanner(file).useDelimiter(",");
+			    Scanner scanPoints = new Scanner(file);
+			    scanPoints.useDelimiter(",");
 			    for(int i=0; i<walls.length; i++){
 			    	count = 0;
-			    	while (scanner.hasNextDouble()) {
-				        scanner.nextDouble();
+			    	while (scanPoints.hasNextDouble()) {
+			    		scanPoints.nextDouble();
 				        count++;
 				    }
 			    	walls[i] = new double[count/2][2];
-				    scanner.nextLine();
+			    	scanPoints.nextLine();
 			    }
-			    scanner.close();
+			    scanPoints.close();
 			    //propagate the array
-			    scanner = new Scanner(file).useDelimiter(",");
+			    Scanner scanArr = new Scanner(file);
+			    scanArr.useDelimiter(",");
 			    for(int i=0; i<walls.length; i++){
 			    	for(int j=0; j<walls[i].length; j++){
-			    		walls[i][j][0] = scanner.nextDouble();
-			    		walls[i][j][1] = scanner.nextDouble();
+			    		walls[i][j][0] = scanArr.nextDouble();
+			    		walls[i][j][1] = scanArr.nextDouble();
 				    }
-				    scanner.nextLine();
+			    	scanArr.nextLine();
 			    }
-			    scanner.close();
+			    scanArr.close();
 			} catch (IOException e) {}
         }
 	}
